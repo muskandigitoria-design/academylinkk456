@@ -14,8 +14,8 @@
   --bg2:#0f1c3a;
   --glass:rgba(255,255,255,0.07);
   --border:rgba(255,255,255,0.14);
-  --accent:#facc15;   /* gold */
-  --accent2:#38bdf8;  /* cyan */
+  --accent:#facc15;
+  --accent2:#38bdf8;
   --text:#f8fafc;
   --muted:#b6bdd6;
 }
@@ -26,14 +26,19 @@
   font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
 
-/* 🌌 BACKGROUND WITH SOFT GRID */
+/* 🌌 3D ANIMATED GRID BACKGROUND */
 body{
   background:
-    linear-gradient(transparent 39px,rgba(255,255,255,.035) 40px),
-    linear-gradient(90deg,transparent 39px,rgba(255,255,255,.035) 40px),
+    linear-gradient(transparent 39px,rgba(255,255,255,.04) 40px),
+    linear-gradient(90deg,transparent 39px,rgba(255,255,255,.04) 40px),
     radial-gradient(circle at top,var(--bg2),var(--bg1) 70%);
   background-size:40px 40px,40px 40px,cover;
   color:var(--text);
+  animation:gridMove 18s linear infinite;
+}
+@keyframes gridMove{
+  0%{background-position:0 0,0 0,center}
+  100%{background-position:0 200px,200px 0,center}
 }
 
 .wrap{
@@ -42,7 +47,7 @@ body{
   padding:75px 16px;
 }
 
-/* 🔵 LOGO */
+/* LOGO */
 .logo{
   width:120px;
   height:120px;
@@ -57,13 +62,10 @@ body{
   height:100%;
   border-radius:50%;
   object-fit:cover;
-  background:#000;
 }
 
 /* HERO */
-.hero{
-  text-align:center;
-}
+.hero{text-align:center}
 .tag{
   display:inline-block;
   padding:7px 20px;
@@ -71,7 +73,6 @@ body{
   font-size:13px;
   color:var(--accent);
   border:1px solid var(--border);
-  background:rgba(255,255,255,0.04);
 }
 h1{
   font-size:clamp(32px,6vw,60px);
@@ -91,7 +92,7 @@ h1 span{
   line-height:1.7;
 }
 
-/* CTA */
+/* 🔥 CTA BUTTON ZOOM EFFECT */
 .btn{
   display:inline-block;
   margin-top:34px;
@@ -102,6 +103,12 @@ h1 span{
   color:#0b0f1a;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   box-shadow:0 0 45px rgba(56,189,248,.45);
+  animation:zoomPulse 2.4s ease-in-out infinite;
+}
+@keyframes zoomPulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
 }
 
 /* FEATURES */
@@ -119,24 +126,12 @@ h1 span{
   text-align:center;
   backdrop-filter:blur(12px);
 }
-.icon{
-  font-size:40px;
-  margin-bottom:14px;
-}
-.feature h3{
-  font-size:18px;
-  margin-bottom:8px;
-}
-.feature p{
-  font-size:15px;
-  color:var(--muted);
-}
+.icon{font-size:40px;margin-bottom:14px}
+.feature h3{font-size:18px;margin-bottom:8px}
+.feature p{font-size:15px;color:var(--muted)}
 
-/* DESKTOP */
 @media(min-width:768px){
-  .features{
-    grid-template-columns:repeat(4,1fr);
-  }
+  .features{grid-template-columns:repeat(4,1fr)}
 }
 
 /* ADS */
@@ -166,7 +161,6 @@ footer{
 
 <div class="wrap">
 
-  <!-- LOGO -->
   <div class="logo">
     <img src="https://fantasticczone.site/wp-content/uploads/2026/01/seedbwj.jpg" alt="Trade With Purab Logo" loading="lazy">
   </div>
@@ -176,7 +170,7 @@ footer{
     <h1>Trade With <span>Purab</span></h1>
     <p>
       Learn structured trading, risk discipline, and real market logic with
-      <strong>Purab Darda</strong>. Built for traders who value consistency over hype.
+      <strong>Purab Darda</strong>. Built for traders who value consistency.
     </p>
 
     <a class="btn" href="https://t.me/+-9gepJLWL_kyZTZl" target="_blank">
@@ -184,31 +178,29 @@ footer{
     </a>
   </section>
 
-  <!-- FEATURES -->
   <section class="features">
     <div class="feature">
       <div class="icon">📊</div>
       <h3>Structured Learning</h3>
-      <p>Professional market education with real clarity.</p>
+      <p>Professional market education with clarity.</p>
     </div>
     <div class="feature">
       <div class="icon">🧠</div>
       <h3>Trader Psychology</h3>
-      <p>Mindset, patience, and emotional control.</p>
+      <p>Mindset and emotional discipline.</p>
     </div>
     <div class="feature">
       <div class="icon">⚡</div>
       <h3>Live Market View</h3>
-      <p>Understand price movement with logic.</p>
+      <p>Real-time price action logic.</p>
     </div>
     <div class="feature">
       <div class="icon">🤝</div>
       <h3>Serious Community</h3>
-      <p>Focused traders. Real growth.</p>
+      <p>Focused traders, real growth.</p>
     </div>
   </section>
 
-  <!-- ADS -->
   <div class="ads">
     Ads managed by <strong>NexGroww Agency</strong> •
     <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">Contact for Ads</a>
