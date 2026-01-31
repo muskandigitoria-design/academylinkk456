@@ -125,6 +125,13 @@ h1 span{
 .feature h3{font-size:17px;margin-bottom:6px}
 .feature p{font-size:14px;color:var(--muted)}
 
+/* 🔥 CENTER BUTTON INSIDE GRID */
+.features .btn{
+  grid-column:1 / -1;
+  justify-self:center;
+  margin-top:20px;
+}
+
 /* DESKTOP */
 @media(min-width:768px){
   .features{grid-template-columns:repeat(4,1fr)}
@@ -199,7 +206,8 @@ footer{
       <p>Focused traders, real growth.</p>
     </div>
 
-      <a class="btn" href="https://t.me/+-9gepJLWL_kyZTZl" target="_blank">
+    <!-- ✅ CENTERED BUTTON -->
+    <a class="btn" href="https://t.me/+-9gepJLWL_kyZTZl" target="_blank">
       Join Free Learning Channel
     </a>
   </section>
