@@ -10,14 +10,12 @@
 
 <style>
 :root{
-  --bg1:#0b0f1a;
-  --bg2:#0f1c3a;
-  --glass:rgba(255,255,255,0.07);
-  --border:rgba(255,255,255,0.14);
   --accent:#facc15;
   --accent2:#38bdf8;
   --text:#f8fafc;
   --muted:#b6bdd6;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
 }
 *{
   margin:0;
@@ -25,37 +23,35 @@
   box-sizing:border-box;
   font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
-
-/* 🌌 3D ANIMATED GRID BACKGROUND */
 body{
-  background:
-    linear-gradient(transparent 39px,rgba(255,255,255,.04) 40px),
-    linear-gradient(90deg,transparent 39px,rgba(255,255,255,.04) 40px),
-    radial-gradient(circle at top,var(--bg2),var(--bg1) 70%);
-  background-size:40px 40px,40px 40px,cover;
+  background:#0b0f1a;
   color:var(--text);
-  animation:gridMove 18s linear infinite;
-}
-@keyframes gridMove{
-  0%{background-position:0 0,0 0,center}
-  100%{background-position:0 200px,200px 0,center}
+  overflow-x:hidden;
 }
 
+/* 🎥 CANVAS GRID */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+/* LAYOUT */
 .wrap{
   max-width:1100px;
   margin:auto;
-  padding:75px 16px;
+  padding:64px 16px;
 }
 
 /* LOGO */
 .logo{
-  width:120px;
-  height:120px;
-  margin:0 auto 28px;
+  width:110px;
+  height:110px;
+  margin:0 auto 24px;
   padding:6px;
   border-radius:50%;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 0 55px rgba(250,204,21,.35);
+  box-shadow:0 0 40px rgba(250,204,21,.35);
 }
 .logo img{
   width:100%;
@@ -68,15 +64,15 @@ body{
 .hero{text-align:center}
 .tag{
   display:inline-block;
-  padding:7px 20px;
-  border-radius:30px;
-  font-size:13px;
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:12px;
   color:var(--accent);
   border:1px solid var(--border);
 }
 h1{
-  font-size:clamp(32px,6vw,60px);
-  margin:20px 0 12px;
+  font-size:clamp(28px,6vw,54px);
+  margin:16px 0 10px;
   font-weight:800;
 }
 h1 span{
@@ -85,60 +81,60 @@ h1 span{
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  max-width:640px;
+  max-width:620px;
   margin:0 auto;
   color:var(--muted);
-  font-size:16px;
-  line-height:1.7;
+  font-size:15px;
+  line-height:1.6;
 }
 
-/* 🔥 CTA BUTTON ZOOM EFFECT */
+/* CTA */
 .btn{
   display:inline-block;
-  margin-top:34px;
-  padding:16px 44px;
+  margin-top:26px;
+  padding:14px 36px;
   border-radius:50px;
   font-weight:900;
   text-decoration:none;
   color:#0b0f1a;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 0 45px rgba(56,189,248,.45);
-  animation:zoomPulse 2.4s ease-in-out infinite;
+  box-shadow:0 0 35px rgba(56,189,248,.45);
+  animation:pulse 2.2s ease-in-out infinite;
 }
-@keyframes zoomPulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.08)}
-  100%{transform:scale(1)}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.07)}
 }
 
 /* FEATURES */
 .features{
   display:grid;
   grid-template-columns:1fr;
-  gap:22px;
-  margin-top:90px;
+  gap:18px;
+  margin-top:70px;
 }
 .feature{
   background:var(--glass);
   border:1px solid var(--border);
-  border-radius:24px;
-  padding:30px;
+  border-radius:22px;
+  padding:26px;
   text-align:center;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
 }
-.icon{font-size:40px;margin-bottom:14px}
-.feature h3{font-size:18px;margin-bottom:8px}
-.feature p{font-size:15px;color:var(--muted)}
+.icon{font-size:34px;margin-bottom:10px}
+.feature h3{font-size:17px;margin-bottom:6px}
+.feature p{font-size:14px;color:var(--muted)}
 
+/* DESKTOP */
 @media(min-width:768px){
   .features{grid-template-columns:repeat(4,1fr)}
 }
 
 /* ADS */
 .ads{
-  margin-top:90px;
+  margin-top:70px;
   text-align:center;
-  font-size:14px;
+  font-size:13px;
   color:#9aa3c5;
 }
 .ads a{
@@ -149,15 +145,18 @@ h1 span{
 
 /* FOOTER */
 footer{
-  margin-top:55px;
+  margin-top:50px;
   text-align:center;
-  font-size:13px;
+  font-size:12px;
   color:#7c84a6;
 }
 </style>
 </head>
 
 <body>
+
+<!-- 🎥 3D GRID CANVAS -->
+<canvas id="grid"></canvas>
 
 <div class="wrap">
 
@@ -187,12 +186,12 @@ footer{
     <div class="feature">
       <div class="icon">🧠</div>
       <h3>Trader Psychology</h3>
-      <p>Mindset and emotional discipline.</p>
+      <p>Mindset & emotional discipline.</p>
     </div>
     <div class="feature">
       <div class="icon">⚡</div>
       <h3>Live Market View</h3>
-      <p>Real-time price action logic.</p>
+      <p>Real price action logic.</p>
     </div>
     <div class="feature">
       <div class="icon">🤝</div>
@@ -211,6 +210,36 @@ footer{
 <footer>
   © 2026 Trade With Purab • Purab Darda • All Rights Reserved
 </footer>
+
+<!-- 🎥 LIGHTWEIGHT 3D GRID JS -->
+<script>
+const c=document.getElementById('grid'),ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+addEventListener('resize',resize);resize();
+
+let t=0;
+function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle='rgba(56,189,248,0.12)';
+  for(let i=0;i<30;i++){
+    let y=(i*60+(t%60));
+    ctx.beginPath();
+    ctx.moveTo(0,y);
+    ctx.lineTo(c.width,y);
+    ctx.stroke();
+  }
+  for(let i=0;i<30;i++){
+    let x=(i*60+(t%60));
+    ctx.beginPath();
+    ctx.moveTo(x,0);
+    ctx.lineTo(x,c.height);
+    ctx.stroke();
+  }
+  t+=0.3;
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
 
 </body>
 </html>
