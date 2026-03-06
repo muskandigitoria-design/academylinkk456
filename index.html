@@ -1,273 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trade With Purab | Official Trading Community</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade With Pankaj | Professional Trading Insights</title>
 
-<meta name="description" content="Trade With Purab by Purab Darda. Join our professional trading community for market insights & trading education.">
-<meta name="robots" content="index, follow">
+    <meta name="description" content="Trade With Pankaj Bharadwaj. Join our professional trading community for expert market insights, price action logic, and trading education.">
+    <meta name="robots" content="index, follow">
 
-<style>
-:root{
-  --accent:#facc15;
-  --accent2:#38bdf8;
-  --text:#f8fafc;
-  --muted:#b6bdd6;
-  --glass:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.15);
-}
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-}
-body{
-  background:#0b0f1a;
-  color:var(--text);
-  overflow-x:hidden;
-}
+    <style>
+        :root {
+            --accent: #fbbf24; /* Amber Gold */
+            --accent2: #10b981; /* Emerald Green */
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-/* 🎥 CANVAS GRID */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
 
-/* LAYOUT */
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  padding:64px 16px;
-}
+        body {
+            background: #020617;
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
 
-/* LOGO */
-.logo{
-  width:110px;
-  height:110px;
-  margin:0 auto 24px;
-  padding:6px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 0 40px rgba(250,204,21,.35);
-}
-.logo img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-}
+        /* 🎥 ANIMATED BACKGROUND CANVAS */
+        canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
 
-/* HERO */
-.hero{text-align:center}
-.tag{
-  display:inline-block;
-  padding:6px 16px;
-  border-radius:20px;
-  font-size:12px;
-  color:var(--accent);
-  border:1px solid var(--border);
-}
-h1{
-  font-size:clamp(28px,6vw,54px);
-  margin:16px 0 10px;
-  font-weight:800;
-}
-h1 span{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  max-width:620px;
-  margin:0 auto;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.6;
-}
+        .wrap {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-/* CTA */
-.btn{
-  display:inline-block;
-  margin-top:26px;
-  padding:14px 36px;
-  border-radius:50px;
-  font-weight:900;
-  text-decoration:none;
-  color:#0b0f1a;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 0 35px rgba(56,189,248,.45);
-  animation:pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.07)}
-}
+        /* LOGO SECTION */
+        .logo-container {
+            position: relative;
+            margin-bottom: 32px;
+        }
 
-/* FEATURES */
-.features{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-  margin-top:70px;
-}
-.feature{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:26px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-}
-.icon{font-size:34px;margin-bottom:10px}
-.feature h3{font-size:17px;margin-bottom:6px}
-.feature p{font-size:14px;color:var(--muted)}
+        .logo {
+            width: 120px;
+            height: 120px;
+            padding: 5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* 🔥 CENTER BUTTON INSIDE GRID */
-.features .btn{
-  grid-column:1 / -1;
-  justify-self:center;
-  margin-top:20px;
-}
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #020617;
+        }
 
-/* DESKTOP */
-@media(min-width:768px){
-  .features{grid-template-columns:repeat(4,1fr)}
-}
+        /* HERO SECTION */
+        .hero { text-align: center; }
 
-/* ADS */
-.ads{
-  margin-top:70px;
-  text-align:center;
-  font-size:13px;
-  color:#9aa3c5;
-}
-.ads a{
-  color:var(--accent2);
-  text-decoration:none;
-  font-weight:700;
-}
+        .tag {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--accent);
+            border: 1px solid var(--border);
+            background: rgba(251, 191, 36, 0.1);
+            margin-bottom: 20px;
+        }
 
-/* FOOTER */
-footer{
-  margin-top:50px;
-  text-align:center;
-  font-size:12px;
-  color:#7c84a6;
-}
-</style>
+        h1 {
+            font-size: clamp(32px, 8vw, 64px);
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: 0 auto 32px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* CALL TO ACTION */
+        .btn {
+            display: inline-block;
+            padding: 18px 44px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            color: #020617;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.5);
+        }
+
+        /* FEATURES GRID */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        .feature {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: border 0.3s ease;
+        }
+
+        .feature:hover {
+            border-color: var(--accent);
+        }
+
+        .icon { font-size: 40px; margin-bottom: 15px; }
+        .feature h3 { font-size: 18px; margin-bottom: 10px; color: #fff; }
+        .feature p { font-size: 15px; color: var(--muted); }
+
+        /* ADS & FOOTER */
+        .ads {
+            margin-top: 80px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.03);
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .ads a { color: var(--accent2); text-decoration: none; font-weight: 600; }
+
+        footer {
+            margin-top: 60px;
+            padding-bottom: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        @media (max-width: 768px) {
+            .wrap { padding: 40px 16px; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- 🎥 3D GRID CANVAS -->
 <canvas id="grid"></canvas>
 
 <div class="wrap">
-
-  <div class="logo">
-    <img src="https://fantasticczone.site/wp-content/uploads/2026/01/seedbwj.jpg" alt="Trade With Purab Logo" loading="lazy">
-  </div>
-
-  <section class="hero">
-    <span class="tag">Official Trading Community</span>
-    <h1>Trade With <span>Purab</span></h1>
-    <p>
-      Learn structured trading, risk discipline, and real market logic with
-      <strong>Purab Darda</strong>. Built for traders who value consistency.
-    </p>
-
-    <a class="btn" href="https://t.me/+-9gepJLWL_kyZTZl" target="_blank">
-      Join Free Learning Channel
-    </a>
-  </section>
-
-  <section class="features">
-    <div class="feature">
-      <div class="icon">📊</div>
-      <h3>Structured Learning</h3>
-      <p>Professional market education with clarity.</p>
-    </div>
-    <div class="feature">
-      <div class="icon">🧠</div>
-      <h3>Trader Psychology</h3>
-      <p>Mindset & emotional discipline.</p>
-    </div>
-    <div class="feature">
-      <div class="icon">⚡</div>
-      <h3>Live Market View</h3>
-      <p>Real price action logic.</p>
-    </div>
-    <div class="feature">
-      <div class="icon">🤝</div>
-      <h3>Serious Community</h3>
-      <p>Focused traders, real growth.</p>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="https://fantasticczone.site/wp-content/uploads/2026/01/seedbwj.jpg" alt="Pankaj Bharadwaj">
+        </div>
     </div>
 
-    <!-- ✅ CENTERED BUTTON -->
-    <a class="btn" href="https://t.me/+orEnymOODk0xY2I1" target="_blank">
-      Join Free Learning Channel
-    </a>
-  </section>
+    <section class="hero">
+        <span class="tag">Exclusive Learning Community</span>
+        <h1>Trade With <span>Pankaj</span></h1>
+        <p>
+            Master the art of <strong>Price Action</strong> and Market Psychology. Join <strong>Pankaj Bharadwaj</strong> to simplify your trading journey with institutional-grade logic.
+        </p>
 
-  <div class="ads">
-    Ads managed by <strong>NexGroww Agency</strong> •
-    <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">Contact for Ads</a>
-  </div>
+        <a class="btn" href="https://t.me/+pZbIbL0dus84ZTU1" target="_blank">
+            Access Free Telegram Channel
+        </a>
+    </section>
 
+    <section class="features">
+        <div class="feature">
+            <div class="icon">📈</div>
+            <h3>Master Price Action</h3>
+            <p>Learn to read charts without lagging indicators.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">💎</div>
+            <h3>Risk Discipline</h3>
+            <p>Proven strategies to protect and grow your capital.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🎯</div>
+            <h3>Live Analysis</h3>
+            <p>Real-time market views and high-probability setups.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🏆</div>
+            <h3>Winning Mindset</h3>
+            <p>Build the psychology required for long-term success.</p>
+        </div>
+    </section>
+
+    <div class="ads">
+        Campaign Managed by <strong>NexGroww Agency</strong> • 
+        <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">Partner With Us</a>
+    </div>
+
+    <footer>
+        © 2026 Trade With Pankaj • Pankaj Bharadwaj • Empowering Retail Traders
+    </footer>
 </div>
 
-<footer>
-  © 2026 Trade With Purab • Purab Darda • All Rights Reserved
-</footer>
-
-<!-- 🎥 LIGHTWEIGHT 3D GRID JS -->
 <script>
-const c=document.getElementById('grid'),ctx=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-addEventListener('resize',resize);resize();
+    const c = document.getElementById('grid'), ctx = c.getContext('2d');
+    function resize() { c.width = innerWidth; c.height = innerHeight; }
+    window.addEventListener('resize', resize); resize();
 
-let t=0;
-function draw(){
-  ctx.clearRect(0,0,c.width,c.height);
-  ctx.strokeStyle='rgba(56,189,248,0.12)';
-  for(let i=0;i<30;i++){
-    let y=(i*60+(t%60));
-    ctx.beginPath();
-    ctx.moveTo(0,y);
-    ctx.lineTo(c.width,y);
-    ctx.stroke();
-  }
-  for(let i=0;i<30;i++){
-    let x=(i*60+(t%60));
-    ctx.beginPath();
-    ctx.moveTo(x,0);
-    ctx.lineTo(x,c.height);
-    ctx.stroke();
-  }
-  t+=0.3;
-  requestAnimationFrame(draw);
-}
-draw();
+    let t = 0;
+    function draw() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.strokeStyle = 'rgba(251, 191, 36, 0.08)';
+        ctx.lineWidth = 1;
+        
+        const spacing = 70;
+        const shift = t % spacing;
+
+        for (let i = -1; i < c.width / spacing + 1; i++) {
+            ctx.beginPath();
+            ctx.moveTo(i * spacing + shift, 0);
+            ctx.lineTo(i * spacing + shift, c.height);
+            ctx.stroke();
+        }
+        for (let i = -1; i < c.height / spacing + 1; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, i * spacing + shift);
+            ctx.lineTo(c.width, i * spacing + shift);
+            ctx.stroke();
+        }
+        t += 0.4;
+        requestAnimationFrame(draw);
+    }
+    draw();
 </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1144581634307751');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1144581634307751&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
 </body>
 </html>
